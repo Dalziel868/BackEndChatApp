@@ -7,6 +7,6 @@ namespace BackEndChatApp.Models.ViewModels
 {
     public class GroupView
     {
-        public int GroupID { get; set; }
+         //public int GroupID { get; set; }
     }
 }
