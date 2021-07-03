@@ -1,4 +1,5 @@
 ﻿using BackEndChatApp.Models;
+using BackEndChatApp.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

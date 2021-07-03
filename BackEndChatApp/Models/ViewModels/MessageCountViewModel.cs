@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace BackEndChatApp.Models.ViewModels
 {
-    public class PersonView
+    public class MessageCountViewModel
     {
-        public int PersonID { get; set; }
+        public int CountMess { get; set; }
     }
 }

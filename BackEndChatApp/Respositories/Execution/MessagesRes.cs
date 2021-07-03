@@ -24,7 +24,7 @@ namespace BackEndChatApp.Respositories.Execution
             _context = context;
             _hubContext = hubContext;
         }
-        public async Task<IEnumerable<MessageDetails>> GetAllMess(Member mb)
+        public async Task<IEnumerable<MessageDetailsViewModel>> GetAllMess(Member mb)
         {
             var messages = from up in _context.UserPeople
                            join me in _context.Members
@@ -34,7 +34,7 @@ namespace BackEndChatApp.Respositories.Execution
                            join sms in _context.SmsMessages
                            on gr.GroupId equals sms.GroupId
                            where up.PersonId == mb.UserId && gr.GroupId == mb.GroupId
-                           select new MessageDetails
+                           select new MessageDetailsViewModel
                            {
                                MessageText = sms.MessageText,
                                Status = sms.Status,

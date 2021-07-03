@@ -1,4 +1,5 @@
 ﻿using BackEndChatApp.Models;
+using BackEndChatApp.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,30 @@ namespace BackEndChatApp.Respositories.Execution
             _context = context;
         }
 
-        public async Task<Models.UserPerson> CreatePerson(Models.UserPerson up)
+        public async Task<UserPerson> CreatePerson(UserPerson up)
         {
+           
             _context.UserPeople.Add(up);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+                //UserLogin userlogin = new UserLogin()
+                //{
+                //    PersonId = up.UserLogin.PersonId,
+                //    Password = up.UserLogin.Password,
+                //    Email = up.UserLogin.Email,
+                //    LoginTime = up.UserLogin.LoginTime,
+                //    PhoneNumber = up.UserLogin.PhoneNumber
+
+                //};
+                //_context.UserLogins.Add(userlogin);
+                //await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+
+                throw;
+            }
             return up;
         }
 

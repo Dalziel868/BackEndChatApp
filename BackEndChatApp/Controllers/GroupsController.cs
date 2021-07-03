@@ -22,8 +22,8 @@ namespace BackEndChatApp.Controllers
         }
 
         [HttpGet("go-to-group/{idGroup}")]
-        [AllowAnonymous]
-        public async Task<ActionResult<GroupPerson>> GetGroup(int idGroup,[FromBody]PersonView pw)
+        //[AllowAnonymous]
+        public async Task<ActionResult<GroupPerson>> GetGroup(int idGroup,[FromBody]PersonViewModel pw)
         {
             var group = await _groupRes.DetailGroup(idGroup,pw);
             if(group==null)

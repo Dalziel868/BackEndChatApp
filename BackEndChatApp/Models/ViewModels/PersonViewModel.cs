@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace BackEndChatApp.Models.ViewModels
 {
-    public class GroupView
+    public class PersonViewModel
     {
-        public int GroupID { get; set; }
+        public int PersonID { get; set; }
     }
 }

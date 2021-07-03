@@ -73,28 +73,13 @@ namespace BackEndChatApp.Controllers
         [HttpPost("add-person")]
         public async Task<ActionResult<UserPerson>> CreatePerson(UserPerson up)
         {
-            try
-            {
-                await _res.CreatePerson(up);
-            }
-            catch (DbUpdateException)
-            {
-                if(PersonExists(up.PersonId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-                
-            }
-
+            await _res.CreatePerson(up);
             return CreatedAtAction(nameof(GetPerson), new { id = up.PersonId }, up);
+           
         }
 
         [HttpDelete("delete-person")]
-        public async Task<IActionResult> DeletePerson(PersonView pw)
+        public async Task<IActionResult> DeletePerson(PersonViewModel pw)
         {
             var person = await _res.GetPerson(pw.PersonID);
             if(person==null)

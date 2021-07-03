@@ -22,8 +22,8 @@ namespace BackEndChatApp.Controllers
         }
 
         [HttpGet("read-message")]
-        [AllowAnonymous]
-        public async Task<IEnumerable<MessageDetails>> GetMessage([FromBody]Member mb)
+        //[AllowAnonymous]
+        public async Task<IEnumerable<MessageDetailsViewModel>> GetMessage([FromBody]Member mb)
         {
            return await _messageRES.GetAllMess(mb);
            

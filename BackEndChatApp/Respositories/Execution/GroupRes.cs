@@ -39,13 +39,7 @@ namespace BackEndChatApp.Respositories.Execution
             try
             {
                 await _context.SaveChangesAsync();
-                Member mb = new Member()
-                {
-                    GroupId = gr.GroupId,
-                    UserId = gr.AdminPerson ?? 0
-                };
-                _context.Members.Add(mb);
-                await _context.SaveChangesAsync();
+               
                 await _hubContext.Clients.All.BroadCastMessage();
             }
             catch (DbUpdateException)
@@ -63,7 +57,7 @@ namespace BackEndChatApp.Respositories.Execution
             return gr;
         }
 
-        public async Task<GroupPerson> DetailGroup(int idGroup, PersonView pw)
+        public async Task<GroupPerson> DetailGroup(int idGroup, PersonViewModel pw)
         {
             var detail = await _context.Members.FirstOrDefaultAsync(m => m.GroupId == idGroup && m.UserId == pw.PersonID);
             if(detail==null)

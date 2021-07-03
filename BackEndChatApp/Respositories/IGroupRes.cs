@@ -10,7 +10,7 @@ namespace BackEndChatApp.Respositories
     public interface IGroupRes
     {
         Task<GroupPerson> CreateGroup(GroupPerson gr);
-        Task<GroupPerson> DetailGroup(int idGroup,PersonView pw);
+        Task<GroupPerson> DetailGroup(int idGroup,PersonViewModel pw);
         bool ExistsGroup(int id);
     }
 }

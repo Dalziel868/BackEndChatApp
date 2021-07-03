@@ -9,7 +9,7 @@ namespace BackEndChatApp.Respositories
 {
     public interface IMessagesRes
     {
-        Task<IEnumerable<MessageDetails>> GetAllMess(Member mb);
+        Task<IEnumerable<MessageDetailsViewModel>> GetAllMess(Member mb);
         Task<SmsMessage> SendMess(SmsMessage sms);
     }
 }

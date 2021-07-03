@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BackEndChatApp.Models.ViewModels
 {
-    public class MessageDetails
+    public class MessageDetailsViewModel
     {
 
         public string MessageText { get; set; }
