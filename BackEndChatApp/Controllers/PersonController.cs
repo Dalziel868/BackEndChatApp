@@ -1,6 +1,7 @@
 ﻿using BackEndChatApp.Models;
 using BackEndChatApp.Models.ViewModels;
 using BackEndChatApp.Respositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,12 +26,14 @@ namespace BackEndChatApp.Controllers
 
        
         [HttpGet("get-all-people")]
+        [Authorize(Roles ="Manager")]
         public async Task<IEnumerable<UserPerson>> GetAllPeople()
         {
             return await _res.GetAllPeople();
         }
         
         [HttpGet("get/{id}")]
+        [Authorize]
         public async Task<ActionResult<UserPerson>> GetPerson(int id)
         {
             return await _res.GetPerson(id);
