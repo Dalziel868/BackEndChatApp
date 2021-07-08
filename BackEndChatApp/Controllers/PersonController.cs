@@ -24,9 +24,8 @@ namespace BackEndChatApp.Controllers
             _res = res;
         }
 
-       
+       [Authorize(Roles = "User")]
         [HttpGet("get-all-people")]
-        [Authorize(Roles ="Manager")]
         public async Task<IEnumerable<UserPerson>> GetAllPeople()
         {
             return await _res.GetAllPeople();
